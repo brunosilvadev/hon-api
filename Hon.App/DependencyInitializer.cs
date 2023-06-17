@@ -2,7 +2,6 @@ using Microsoft.OpenApi.Models;
 
 public static class DependencyInitializer
 {
-
     public static IApplicationBuilder UseOpenApi(this IApplicationBuilder builder)
     {
         builder.UseSwagger();
