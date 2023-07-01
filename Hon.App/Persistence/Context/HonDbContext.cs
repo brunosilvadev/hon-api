@@ -11,8 +11,9 @@ public class HonDbContext : DbContext
 	public DbSet<SampleModel> Samples { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-    base.OnModelCreating(modelBuilder);
-}
+	{
+		modelBuilder.Entity<SampleModel>().HasKey(s => s.SampleId);
 
+		base.OnModelCreating(modelBuilder);
+	}
 }
