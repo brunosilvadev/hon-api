@@ -22,4 +22,5 @@ public class HonDatabaseService : IDatabaseService
 public interface IDatabaseService
 {
     Task<List<SampleModel>> GetSamples();
+    Task AddSample(SampleModel sample);
 }
