@@ -9,7 +9,7 @@ public static class DependencyInitializer
         
         services.AddDbContext<HonDbContext>(options =>
             options.UseMySQL("Server=localhost;Port=3306;Database=test_db;User=root;Password=Database01!;"));
-        services.AddTransient<IDatabaseService, HonDatabaseService>();
+        services.AddScoped<IDatabaseService, HonDatabaseService>();
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>

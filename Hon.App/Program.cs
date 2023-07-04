@@ -9,9 +9,9 @@ app.UseOpenApi();
 
 app.MapGet("/test", () => "Hello World!");
 
-app.MapGet("/testdb", (IDatabaseService dbService) => 
+app.MapGet("/testdb", async (IDatabaseService dbService) => 
 {
-    dbService.GetSamples();
+    await dbService.GetSamples();
 });
 
 
