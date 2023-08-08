@@ -27,8 +27,7 @@ public class HonDatabaseService : IDatabaseService
         var sampleToUpdate = await _context.Samples.FindAsync(sample.SampleId);
         if (sampleToUpdate != null)
         {
-            sample.SampleName = sample.SampleName;
-            _context.Samples.Update(sample);
+            sampleToUpdate.SampleName = sample.SampleName;
             await _context.SaveChangesAsync();
         }
     }

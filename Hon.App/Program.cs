@@ -22,7 +22,7 @@ app.MapGet("/get{id}", async (int id, IDatabaseService dbService) =>
 app.MapPost("/create", async (SampleModel sample, IDatabaseService dbService) =>
 {
     await dbService.AddSample(sample);
-    return Results.CreatedAtRoute($"/create/{sample.SampleId}",sample);
+    return Results.Ok();
 });
 
 app.MapPut("/update", async (SampleModel sample, IDatabaseService dbService) =>
