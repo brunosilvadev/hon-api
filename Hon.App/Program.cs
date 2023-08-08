@@ -3,10 +3,16 @@ using Hon.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDIServices();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
 app.UseOpenApi();
+app.UseCors(options =>
+    options.WithOrigins("http://localhost:4200")
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+);
 
 app.MapGet("/list", async (IDatabaseService dbService) => 
 {
