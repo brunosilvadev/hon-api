@@ -37,9 +37,20 @@ app.MapPut("/update", async (SampleModel sample, IDatabaseService dbService) =>
     return Results.Ok(sample);
 });
 
-app.MapDelete("/delte{id}", async (int id, IDatabaseService dbService) =>
+app.MapDelete("/delete{id}", async (int id, IDatabaseService dbService) =>
 {
     await dbService.DeleteSample(id);
+    return Results.Ok();
+});
+
+app.MapGet("/cards", async (IDatabaseService dbService) =>
+{
+    return Results.Ok(await dbService.ListCards());
+});
+
+app.MapPost("/add-card", async(Card card, IDatabaseService dbService) =>
+{
+    await dbService.AddCard(card);
     return Results.Ok();
 });
 
