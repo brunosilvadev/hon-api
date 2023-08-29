@@ -11,6 +11,7 @@ public class HonDbContext : DbContext
 	public DbSet<SampleModel> Samples { get; set; } 
 	public DbSet<Card> Card {get;set;}
 	public DbSet<Category> Category {get;set;}
+	public DbSet<Reminder> Reminder {get;set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
@@ -20,12 +21,21 @@ public class HonDbContext : DbContext
 
 		modelBuilder.Entity<Card>().HasKey(c => c.CardId);
 
+		modelBuilder.Entity<Reminder>().HasKey(r => r.ReminderId);
+
 		modelBuilder.Entity<Card>()
 			.HasOne(c => c.Category)
 			.WithMany()
 			.HasForeignKey(c => c.CategoryId)
 			.OnDelete(DeleteBehavior.SetNull)
-			.IsRequired(false);			
+			.IsRequired(false);	
+
+		modelBuilder.Entity<Card>()
+			.HasOne(c => c.Reminder)
+			.WithMany()
+			.HasForeignKey(c => c.ReminderId)
+			.OnDelete(DeleteBehavior.SetNull)
+			.IsRequired(false);
 
 		base.OnModelCreating(modelBuilder);
 	}

@@ -4,12 +4,21 @@ CREATE TABLE Card
     `CardName` varchar(256) NOT NULL,
     `CardContent` varchar(2048) ,
     `CategoryId` int,
+    `ReminderId` int,
     PRIMARY KEY (CardId)
 )
+
+
 
 ALTER TABLE `Card`
 ADD CONSTRAINT `fk_CategoryId`
 FOREIGN KEY (`CategoryId`) REFERENCES `Category`(`CategoryId`)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+ALTER TABLE `Card`
+ADD CONSTRAINT `fk_ReminderId`
+FOREIGN KEY (`ReminderId`) REFERENCES `Reminder`(`ReminderId`)
 ON DELETE SET NULL
 ON UPDATE CASCADE;
 
