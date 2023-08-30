@@ -42,7 +42,9 @@ public class HonDatabaseService : IDatabaseService
     }
     public async Task<List<Card>> ListCards()
     {
-        return await _context.Card.ToListAsync();
+        return await _context.Card
+                .Include(c => c.Category)
+                .ToListAsync();
     }
     public async Task AddCard(Card card)
     {
