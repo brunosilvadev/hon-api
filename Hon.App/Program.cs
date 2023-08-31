@@ -54,4 +54,9 @@ app.MapPost("/add-card", async(Card card, IDatabaseService dbService) =>
     return Results.Ok();
 });
 
+app.MapGet("/categories", async (IDatabaseService dbService) =>
+{
+    return Results.Ok(await dbService.ListCategories());
+});
+
 app.Run();

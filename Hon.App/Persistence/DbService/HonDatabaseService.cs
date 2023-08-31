@@ -58,6 +58,10 @@ public class HonDatabaseService : IDatabaseService
         _context.Card.Add(cardToInsert);
         await _context.SaveChangesAsync();          
     }
+    public async Task<List<Category>> ListCategories()
+    {
+        return await _context.Category.ToListAsync();
+    }
 }
 
 public interface IDatabaseService
@@ -69,4 +73,5 @@ public interface IDatabaseService
     Task DeleteSample(int sampleId);
     Task<List<Card>> ListCards();
     Task AddCard(Card card);
+    Task<List<Category>> ListCategories();
 }
