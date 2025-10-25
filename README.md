@@ -8,9 +8,9 @@ The Homeowner Notebook API provides a backend service for tracking home maintena
 
 ## Technology Stack
 
-- **Framework**: ASP.NET Core 6.0 (Minimal APIs)
+- **Framework**: ASP.NET Core 9.0 (Minimal APIs)
 - **Database**: MySQL 8.0
-- **ORM**: Entity Framework Core 7.0
+- **ORM**: Entity Framework Core 9.0
 - **API Documentation**: Swagger/OpenAPI
 - **CORS**: Configured for `http://localhost:4200` (Angular frontend)
 
